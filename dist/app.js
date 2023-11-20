@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const routes_1 = require("./routes");
 const app = (0, express_1.default)();
 const PORT = 3000;
+const name = "John Calimoso";
 // middleware
 // endpoint
 app.use('/login', routes_1.loginRouter);

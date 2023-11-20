@@ -10,6 +10,6 @@ router.use(bodyParser.urlencoded({extended:true}))
 router.use(bodyParser.json())
 
 
-router.post('/', (req,res) => {
-    res.send(JSON.stringify(req.body, null,2))
+router.get('/', async (req, res) => { 
+
 })
