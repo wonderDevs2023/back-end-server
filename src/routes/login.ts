@@ -1,6 +1,8 @@
 import { Router } from "express";
-import express from "express";
 import bodyParser from "body-parser";
+
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase.config"
 
 export const router = Router()
 
@@ -11,5 +13,19 @@ router.use(bodyParser.json())
 
 
 router.post('/', (req,res) => {
-    res.send(JSON.stringify(req.body, null,2))
+    try {
+        signInWithEmailAndPassword(auth, req.body.email, req.body.password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+        });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Internal Server Error');
+    }
 })
