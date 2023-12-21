@@ -3,7 +3,6 @@ import cors from 'cors';
 import { loginRouter,
          logOutRouter,
          userRouter,
-         updateDailyCustomerRouter,
          customerRouter
 } from "./routes";
 
@@ -19,7 +18,6 @@ app.use(express.json());
 app.use('/login',loginRouter);
 app.use('/logout',logOutRouter);
 app.use('/user',userRouter);
-app.use('/updateDailyCustomer',updateDailyCustomerRouter);
 app.use('/customer', customerRouter)
 
 app.listen( PORT, () => {
