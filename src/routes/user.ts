@@ -12,8 +12,11 @@ router.use(bodyParser.urlencoded({extended:true}))
 // parse application/json
 router.use(bodyParser.json())
 
+router.get('/', (req,res) => {
+    res.send('User Endpoint')
+})
 
-router.post('/', async (req, res) => {
+router.post('/add', async (req, res) => {
     // add new user here
     try{
         //Add a new document with a generated id.

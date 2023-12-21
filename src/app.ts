@@ -2,10 +2,9 @@ import express from "express";
 import cors from 'cors';
 import { loginRouter,
          logOutRouter,
-         addUserRouter, 
-         findUsersRouter,
+         userRouter,
          updateDailyCustomerRouter,
-         addCustomerRouter
+         customerRouter
 } from "./routes";
 
 const app = express();
@@ -19,10 +18,9 @@ app.use(express.json());
 // endpoint
 app.use('/login',loginRouter);
 app.use('/logout',logOutRouter);
-app.use('/addUser',addUserRouter);
-app.use('/findUser',findUsersRouter);
+app.use('/user',userRouter);
 app.use('/updateDailyCustomer',updateDailyCustomerRouter);
-app.use('/addCustomer', addCustomerRouter)
+app.use('/customer', customerRouter)
 
 app.listen( PORT, () => {
     console.log(`Server is running on port ${PORT}`)
